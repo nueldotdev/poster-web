@@ -37,6 +37,27 @@ export default function LandingPage() {
     handleMove(e.touches[0].clientX);
   };
 
+  const handleDownload = async () => {
+    // Check if the user is on a Mac
+    if (navigator.userAgent.toLowerCase().includes('mac')) {
+      alert("Poster is currently only available for Windows. Mac support is coming soon!");
+      return;
+    }
+
+    try {
+      const res = await fetch("https://api.github.com/repos/nueldotdev/Poster/releases/latest");
+      const data = await res.json();
+      const exeAsset = data.assets?.find((a: any) => a.name.endsWith(".exe"));
+      if (exeAsset) {
+        window.location.href = exeAsset.browser_download_url;
+      } else {
+        alert("The Windows installer is currently unavailable. Please check back later!");
+      }
+    } catch (error) {
+      alert("We couldn't connect to the download server. Please try again later!");
+    }
+  };
+
   return (
     <div className="flex-1 overflow-x-hidden">
       {/* Navbar */}
@@ -48,9 +69,9 @@ export default function LandingPage() {
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-text-secondary">
             <a href="#features" className="hover:text-accent transition-colors">Features</a>
-            <a href="#comparison" className="hover:text-accent transition-colors">AI Enhancement</a>
+            <a href="#comparison" className="hover:text-accent transition-colors">AI</a>
           </div>
-          <button className="bg-accent text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
+          <button onClick={handleDownload} className="cursor-pointer bg-accent text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity flex items-center gap-2">
             <Download size={16} />
             Download
           </button>
@@ -60,26 +81,18 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-accent-muted text-accent px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-wide uppercase">
-            <Sparkles size={14} />
-            AI-Powered Wallpaper Management
-          </div>
           <h1 className="text-5xl md:text-7xl font-extrabold text-text-primary mb-6 tracking-tight leading-[1.1]">
             Your Wallpapers,<br /> 
             <span className="text-accent">Perfectly Optimized.</span>
           </h1>
           <p className="text-lg md:text-xl text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed">
-            The ultimate desktop companion to organize, enhance, and set your favorite images. 
-            Experience high-definition clarity with AI super-resolution.
+            The ultimate desktop companion to organize, optimize, and set your favorite images. 
+            Experience native-resolution clarity with automated optimal scaling.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="w-full sm:w-auto bg-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all hover:-translate-y-1 flex items-center justify-center gap-3">
+            <button onClick={handleDownload} className="cursor-pointer w-full sm:w-auto bg-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all hover:-translate-y-1 flex items-center justify-center gap-3">
               <Download size={20} />
               Download for Windows
-            </button>
-            <button className="w-full sm:w-auto bg-surface text-text-primary border-2 border-border-custom px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-2 transition-all flex items-center justify-center gap-2">
-              View Source Code
-              <ChevronRight size={20} />
             </button>
           </div>
           
@@ -103,9 +116,12 @@ export default function LandingPage() {
       <section id="comparison" className="py-24 bg-surface-2/50 border-y border-border-custom px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-text-primary">AI HD Super-Resolution</h2>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-text-primary">AI Enhancement</h2>
+              <span className="bg-text-secondary/20 text-text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">Coming Soon</span>
+            </div>
             <p className="text-text-secondary max-w-xl mx-auto">
-              Transform low-quality images into stunning high-definition wallpapers with our integrated AI enhancement model.
+              Transform low-quality images into stunning high-definition wallpapers with our upcoming integrated AI enhancement model. (Currently in development).
             </p>
           </div>
 
@@ -186,7 +202,7 @@ export default function LandingPage() {
             {
               icon: <Layout className="text-accent" size={32} />,
               title: "Library Management",
-              desc: "Organize your collection into custom boards and find your favorites in seconds."
+              desc: "Organize your collection and find your favorite wallpapers in seconds."
             },
             {
               icon: <Shield className="text-accent" size={32} />,
@@ -205,6 +221,43 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Recent Updates Section */}
+      <section id="changelog" className="py-24 px-6 bg-surface-2/30 border-y border-border-custom">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-text-primary">Recent Updates</h2>
+            <p className="text-text-secondary">Follow along as we constantly improve Poster.</p>
+          </div>
+          
+          <div className="space-y-8">
+            <div className="flex gap-6 p-6 rounded-2xl bg-surface border border-border-custom hover:shadow-md transition-shadow">
+               <div className="hidden sm:flex flex-col items-center">
+                 <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm mb-2 pt-1 uppercase tracking-wider">NEW</div>
+               </div>
+               <div>
+                 <div className="flex items-center gap-3 mb-2">
+                   <h3 className="text-xl font-bold text-text-primary">v1.0.1 - Engine Upgrade</h3>
+                   <span className="text-xs font-semibold bg-accent-muted text-accent px-2 py-1 rounded-md">Latest</span>
+                 </div>
+                 <p className="text-text-secondary text-sm leading-relaxed">Swapped legacy PowerShell wallpaper scripts for a seamless, cross-platform module. Poster now sets wallpapers significantly faster and lays the foundation for future Mac support.</p>
+               </div>
+            </div>
+            
+            <div className="flex gap-6 p-6 rounded-2xl bg-surface border border-border-custom/50 hover:shadow-md transition-shadow opacity-75">
+               <div className="hidden sm:flex flex-col items-center">
+                 <div className="w-12 h-12 rounded-full bg-surface-2 flex items-center justify-center text-text-muted font-bold text-sm mb-2 pt-1 uppercase tracking-wider">v1</div>
+               </div>
+               <div>
+                 <div className="flex items-center gap-3 mb-2">
+                   <h3 className="text-xl font-bold text-text-primary">v1.0.0 - Initial Release</h3>
+                 </div>
+                 <p className="text-text-secondary text-sm leading-relaxed">The very first official launch of Poster! Complete with our sleek minimal interface, high-fidelity local scaling via Sharp, and instant wallpaper applications.</p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 px-6 bg-surface overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-accent skew-x-12 translate-x-1/2 opacity-40"></div>
@@ -212,7 +265,7 @@ export default function LandingPage() {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-8 leading-[1.2] text-text-primary">Ready to transform your desktop?</h2>
           <p className="text-lg opacity-70 mb-12 max-w-2xl mx-auto text-text-secondary font-medium">Download Poster today and start building your perfect wallpaper collection.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="bg-accent text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-accent-light transition-all shadow-lg hover:shadow-accent/20">
+            <button onClick={handleDownload} className="cursor-pointer bg-accent text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-accent-light transition-all shadow-lg hover:shadow-accent/20">
               Download Now
             </button>
           </div>
@@ -226,10 +279,13 @@ export default function LandingPage() {
             <Image src="/logo.svg" alt="Poster Logo" width={24} height={24} />
             <span className="font-bold text-lg tracking-tight text-text-primary">Poster</span>
           </div>
-          <p className="text-text-muted text-sm font-medium">© 2026 Poster App. All rights reserved.</p>
+          <p className="text-text-muted text-sm font-medium">
+            Made with <span className="text-red-500">❤️</span> by <a href="https://nueldotdev.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors font-bold">nueldotdev</a>
+          </p>
           <div className="flex items-center gap-6 text-sm text-text-secondary font-medium">
-            <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
+            <a href="https://github.com/nueldotdev/Poster" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors flex items-center gap-2">
+              GitHub
+            </a>
           </div>
         </div>
       </footer>

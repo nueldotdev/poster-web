@@ -9,7 +9,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Poster - Wallpaper Manager",
-  description: "Organize, enhance, and set your favorite wallpapers with ease.",
+  description: "Organize, optimize, and set your favorite wallpapers with ease.",
 };
 
 export default function RootLayout({
