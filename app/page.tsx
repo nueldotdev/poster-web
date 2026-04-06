@@ -233,11 +233,25 @@ export default function LandingPage() {
             <div className="flex gap-6 p-6 rounded-2xl bg-surface border border-border-custom hover:shadow-md transition-shadow">
                <div className="hidden sm:flex flex-col items-center">
                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm mb-2 pt-1 uppercase tracking-wider">NEW</div>
+                 <div className="w-0.5 h-full bg-border-custom/50 rounded-full"></div>
+               </div>
+               <div>
+                 <div className="flex items-center gap-3 mb-2">
+                   <h3 className="text-xl font-bold text-text-primary">v1.0.2 - Installation Hotfix</h3>
+                   <span className="text-xs font-semibold bg-accent-muted text-accent px-2 py-1 rounded-md">Latest</span>
+                 </div>
+                 <p className="text-text-secondary text-sm leading-relaxed">Critical packaging hotfix. The internal Sharp and Wallpaper binaries are now cleanly unpacked during installation to prevent startup crashes on fresh systems.</p>
+               </div>
+            </div>
+
+            <div className="flex gap-6 p-6 rounded-2xl bg-surface border border-border-custom/50 hover:shadow-md transition-shadow opacity-75">
+               <div className="hidden sm:flex flex-col items-center">
+                 <div className="w-12 h-12 rounded-full bg-surface-2 flex items-center justify-center text-text-muted font-bold text-sm mb-2 pt-1 uppercase tracking-wider">v1</div>
+                 <div className="w-0.5 h-full bg-border-custom/50 rounded-full"></div>
                </div>
                <div>
                  <div className="flex items-center gap-3 mb-2">
                    <h3 className="text-xl font-bold text-text-primary">v1.0.1 - Engine Upgrade</h3>
-                   <span className="text-xs font-semibold bg-accent-muted text-accent px-2 py-1 rounded-md">Latest</span>
                  </div>
                  <p className="text-text-secondary text-sm leading-relaxed">Swapped legacy PowerShell wallpaper scripts for a seamless, cross-platform module. Poster now sets wallpapers significantly faster and lays the foundation for future Mac support.</p>
                </div>
@@ -251,7 +265,7 @@ export default function LandingPage() {
                  <div className="flex items-center gap-3 mb-2">
                    <h3 className="text-xl font-bold text-text-primary">v1.0.0 - Initial Release</h3>
                  </div>
-                 <p className="text-text-secondary text-sm leading-relaxed">The very first official launch of Poster! Complete with our sleek minimal interface, high-fidelity local scaling via Sharp, and instant wallpaper applications.</p>
+                 <p className="text-text-secondary text-sm leading-relaxed">The very first official launch of Poster! Complete with our fluid UI, high-fidelity local scaling via Sharp, and instant wallpaper applications.</p>
                </div>
             </div>
           </div>
