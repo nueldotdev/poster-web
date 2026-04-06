@@ -237,10 +237,10 @@ export default function LandingPage() {
                </div>
                <div>
                  <div className="flex items-center gap-3 mb-2">
-                   <h3 className="text-xl font-bold text-text-primary">v1.0.2 - Installation Hotfix</h3>
+                   <h3 className="text-xl font-bold text-text-primary">v1.0.3 - Final Hotfix</h3>
                    <span className="text-xs font-semibold bg-accent-muted text-accent px-2 py-1 rounded-md">Latest</span>
                  </div>
-                 <p className="text-text-secondary text-sm leading-relaxed">Critical packaging hotfix. The internal Sharp and Wallpaper binaries are now cleanly unpacked during installation to prevent startup crashes on fresh systems.</p>
+                 <p className="text-text-secondary text-sm leading-relaxed">Properly configured Electron Forge to unpack native system binaries recursively while keeping JS source files compressed. Stability is guaranteed!</p>
                </div>
             </div>
 
