@@ -237,10 +237,10 @@ export default function LandingPage() {
                </div>
                <div>
                  <div className="flex items-center gap-3 mb-2">
-                   <h3 className="text-xl font-bold text-text-primary">v1.0.4 - Final Hotfix</h3>
+                   <h3 className="text-xl font-bold text-text-primary">v1.0.5 - Ultimate Reliability</h3>
                    <span className="text-xs font-semibold bg-accent-muted text-accent px-2 py-1 rounded-md">Latest</span>
                  </div>
-                 <p className="text-text-secondary text-sm leading-relaxed">Fixed the installation process to properly unpack native system binaries recursively while keeping JS source files compressed. Stability is guaranteed, hopefully!</p>
+                 <p className="text-text-secondary text-sm leading-relaxed">Added robust system-native fallbacks (PowerShell for Windows and AppleScript for macOS) to guarantee wallpaper application even when module binaries are restricted. Improved module bundling and cross-platform consistency.</p>
                </div>
             </div>
 
@@ -251,9 +251,9 @@ export default function LandingPage() {
                </div>
                <div>
                  <div className="flex items-center gap-3 mb-2">
-                   <h3 className="text-xl font-bold text-text-primary">v1.0.3 - Hotfix</h3>
+                   <h3 className="text-xl font-bold text-text-primary">v1.0.4 - Final Hotfix</h3>
                  </div>
-                 <p className="text-text-secondary text-sm leading-relaxed">Fixed the installation process to properly unpack native system binaries recursively while keeping JS source files compressed</p>
+                 <p className="text-text-secondary text-sm leading-relaxed">Fixed the installation process to properly unpack native system binaries recursively while keeping JS source files compressed.</p>
                </div>
             </div>
             <div className="flex gap-6 p-6 rounded-2xl bg-surface border border-border-custom/50 hover:shadow-md transition-shadow opacity-75">
