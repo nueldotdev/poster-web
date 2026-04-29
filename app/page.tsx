@@ -237,8 +237,21 @@ export default function LandingPage() {
                </div>
                <div>
                  <div className="flex items-center gap-3 mb-2">
-                   <h3 className="text-xl font-bold text-text-primary">v1.0.6 - Background Slideshows</h3>
+                   <h3 className="text-xl font-bold text-text-primary">v1.1.0 - Auto-Update Reliability</h3>
                    <span className="text-xs font-semibold bg-accent-muted text-accent px-2 py-1 rounded-md">Latest</span>
+                 </div>
+                 <p className="text-text-secondary text-sm leading-relaxed">This critical update fixes our automatic update system for all future releases. We've also streamlined the interface by temporarily disabling work-in-progress AI features to focus on core stability.</p>
+               </div>
+            </div>
+
+            <div className="flex gap-6 p-6 rounded-2xl bg-surface border border-border-custom/50 hover:shadow-md transition-shadow opacity-75">
+               <div className="hidden sm:flex flex-col items-center">
+                 <div className="w-12 h-12 rounded-full bg-surface-2 flex items-center justify-center text-text-muted font-bold text-sm mb-2 pt-1 uppercase tracking-wider">v1</div>
+                 <div className="w-0.5 h-full bg-border-custom/50 rounded-full"></div>
+               </div>
+               <div>
+                 <div className="flex items-center gap-3 mb-2">
+                   <h3 className="text-xl font-bold text-text-primary">v1.0.6 - Background Slideshows</h3>
                  </div>
                  <p className="text-text-secondary text-sm leading-relaxed">Introducing the Slideshow feature! Select 3-5 of your favorite wallpapers and have them rotate at custom intervals. Includes a new System Tray integration to keep the slideshow running while the app is closed.</p>
                </div>
